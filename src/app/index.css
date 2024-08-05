@@ -16,7 +16,7 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-gray-400 border border-white rounded;
+    @apply bg-green-400 border border-white rounded;
   }
 }
 
@@ -27,16 +27,16 @@
   }
 
   .user-bubble {
-    @apply bg-gray-200 text-black; /* Assuming 'text-main-text' and 'bg-light-gray' are custom styles, replaced with Tailwind's defaults */
+    @apply bg-green-200 text-black;
   }
 
   .assistant-bubble {
-    @apply self-end bg-blue-500 text-white; /* Assuming 'bg-primary-blue' is a custom style, replaced with Tailwind's default */
+    @apply self-end bg-green-500 text-white;
   }
 
   .wave {
-    @apply w-10 h-10 rounded-full bg-orange-500 relative; /* Converted width, aspect-ratio, border-radius, background to Tailwind classes, added relative positioning */
-    box-shadow: 0 0 0 0 rgba(253, 186, 116, 0.85); /* Converted theme(colors.primary-orange / 85) to RGBA */
+    @apply w-10 h-10 rounded-full bg-lime-500 relative;
+    box-shadow: 0 0 0 0 rgba(132, 204, 22, 0.85);
     animation: l2 1.8s infinite linear;
     animation-play-state: paused;
   }
@@ -49,7 +49,7 @@
     position: absolute;
     inset: 0;
     border-radius: inherit;
-    box-shadow: 0 0 0 0 rgba(253, 186, 116); /* Converted theme(colors.primary-orange) to RGBA */
+    box-shadow: 0 0 0 0 rgba(132, 204, 22);
     animation: inherit;
     animation-delay: -0.6s;
   }
@@ -60,6 +60,6 @@
 
 @keyframes l2 {
   100% {
-    box-shadow: 0 0 0 50px rgba(253, 186, 116, 0); /* Converted theme(colors.primary-orange / 0) to RGBA */
+    box-shadow: 0 0 0 50px rgba(132, 204, 22, 0);
   }
 }
