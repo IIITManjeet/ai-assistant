@@ -16,32 +16,29 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-light-gray border border-white rounded;
+    @apply bg-gray-400 border border-white rounded;
   }
 }
 
 @layer components {
-  .user-bubble, .assistant-bubble {
+  .user-bubble,
+  .assistant-bubble {
     @apply inline-block max-w-[80%] sm:max-w-[450px] py-2 px-4 rounded-2xl;
   }
 
   .user-bubble {
-    @apply bg-light-gray text-main-text;
+    @apply bg-gray-200 text-black; /* Assuming 'text-main-text' and 'bg-light-gray' are custom styles, replaced with Tailwind's defaults */
   }
 
   .assistant-bubble {
-    @apply self-end bg-primary-blue text-white;
+    @apply self-end bg-blue-500 text-white; /* Assuming 'bg-primary-blue' is a custom style, replaced with Tailwind's default */
   }
 
   .wave {
-    width: 40px;
-    aspect-ratio: 1;
-    border-radius: 50%;
-    background: theme(colors.primary-orange);
-    box-shadow: 0 0 0 0 theme(colors.primary-orange / 85);
+    @apply w-10 h-10 rounded-full bg-orange-500 relative; /* Converted width, aspect-ratio, border-radius, background to Tailwind classes, added relative positioning */
+    box-shadow: 0 0 0 0 rgba(253, 186, 116, 0.85); /* Converted theme(colors.primary-orange / 85) to RGBA */
     animation: l2 1.8s infinite linear;
     animation-play-state: paused;
-    position: relative;
   }
   .wave.running {
     animation-play-state: running;
@@ -52,16 +49,17 @@
     position: absolute;
     inset: 0;
     border-radius: inherit;
-    box-shadow: 0 0 0 0 theme(colors.primary-orange);
+    box-shadow: 0 0 0 0 rgba(253, 186, 116); /* Converted theme(colors.primary-orange) to RGBA */
     animation: inherit;
     animation-delay: -0.6s;
   }
   .wave:after {
     animation-delay: -1.2s;
   }
-  @keyframes l2 {
-    100% {
-      box-shadow: 0 0 0 50px theme(colors.primary-orange / 0);
-    }
+}
+
+@keyframes l2 {
+  100% {
+    box-shadow: 0 0 0 50px rgba(253, 186, 116, 0); /* Converted theme(colors.primary-orange / 0) to RGBA */
   }
 }
