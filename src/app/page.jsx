@@ -5,6 +5,8 @@ import Image from "next/image";
 import conversationReducer from "./conversationReducer";
 import micIcon from "../../public/mic.svg";
 import micOffIcon from "../../public/mic-off.svg";
+import aiCharacter from "../../public/doll-bot.png";
+import cloud from "../../public/cloud.png";
 import Header from "@/components/Header";
 
 const initialConversation = {
@@ -200,8 +202,25 @@ function VoiceAssistant() {
       <Header />
       <div className="flex flex-col pt-14 pb-4">
         <div className="flex flex-col justify-center items-center">
-          <div className={`wave ${isRunning ? "running" : ""}`} />
-          <p className="mt-14 text-[13px] text-white">
+          <div className="relative">
+            <Image
+              src={aiCharacter}
+              alt="AI Character"
+              width={150}
+              className={isRunning ? "slow-bounce" : ""}
+              height={150}
+            />
+            {isRunning && (
+              <Image
+                src={cloud}
+                alt="Speaking"
+                className="absolute -top-5 -right-5"
+                width={70}
+                height={50}
+              />
+            )}
+          </div>
+          <p className=" text-[13px] text-white">
             {isRunning
               ? 'You can also end the conversation by saying "bye" or "goodbye"'
               : "Click here to start a voice conversation with the assistant"}

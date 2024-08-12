@@ -33,33 +33,19 @@
   .assistant-bubble {
     @apply self-end bg-green-500 text-white;
   }
-
-  .wave {
-    @apply w-10 h-10 rounded-full bg-lime-500 relative;
-    box-shadow: 0 0 0 0 rgba(132, 204, 22, 0.85);
-    animation: l2 1.8s infinite linear;
-    animation-play-state: paused;
+}
+@keyframes slow-bounce {
+  0%,
+  100% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
   }
-  .wave.running {
-    animation-play-state: running;
-  }
-  .wave:before,
-  .wave:after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    box-shadow: 0 0 0 0 rgba(132, 204, 22);
-    animation: inherit;
-    animation-delay: -0.6s;
-  }
-  .wave:after {
-    animation-delay: -1.2s;
+  50% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
   }
 }
 
-@keyframes l2 {
-  100% {
-    box-shadow: 0 0 0 50px rgba(132, 204, 22, 0);
-  }
+.slow-bounce {
+  animation: slow-bounce 3s infinite;
 }
